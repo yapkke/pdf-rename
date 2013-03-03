@@ -26,10 +26,6 @@ except getopt.GetoptError:
     
 #Variables
 MV = "mv"
-filename =args[0]
-key = args[1]
-value = args[2]
-outfile = tempfile.mktemp()
 
 #Parse options
 for opt,arg in opts:
@@ -37,8 +33,18 @@ for opt,arg in opts:
         usage()
         sys.exit(0)
     else:
-        print "Unhandled option :"+opt
+        print "Unhandled option :"+op
         sys.exit(2)
+
+if (len(args) < 3):
+    print "Insufficient arguments!"
+    usage()
+    sys.exit(2)
+
+filename =args[0]
+key = args[1]
+value = args[2]
+outfile = tempfile.mktemp()
 
 pdftk_cmd = pdftk.cmd()
 print pdftk_cmd.update_info(filename, key, value, outfile)
