@@ -17,7 +17,7 @@ class pdfinfo:
         for line in lines:
             items = line.split(":")
             if (len(items) >= 2):
-                self.content[items[0].strip()] = items[1].strip()
+                self.content[items[0].strip()] = ":".join(items[1:]).strip()
 
     def filename(self, keys=["Author","Title"], musthave=["Title"],
                  filename = "", quoted=False):

@@ -36,6 +36,7 @@ for opt,arg in opts:
         print "Unhandled option :"+op
         sys.exit(2)
 
+#Check number of arguments
 if (len(args) < 3):
     print "Insufficient arguments!"
     usage()
